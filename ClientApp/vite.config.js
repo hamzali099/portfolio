@@ -5,6 +5,10 @@ import react from '@vitejs/plugin-react';
 // so Views/Shared/_Layout.cshtml can reference them directly.
 export default defineConfig({
   plugins: [react()],
+  // Shown in the footer so you can tell which build is live
+  define: {
+    __BUILD_TIME__: JSON.stringify(new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC'),
+  },
   build: {
     outDir: '../Portfolio.Web/wwwroot/app',
     emptyOutDir: true,

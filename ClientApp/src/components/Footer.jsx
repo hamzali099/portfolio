@@ -28,6 +28,7 @@ export default function Footer({ profile }) {
       </div>
       <div className="container footer__bottom">
         © {new Date().getFullYear()} {profile.name}. Built with React &amp; ASP.NET Core MVC.
+        <span className="footer__build">Version: {__BUILD_TIME__} · email v2</span>
       </div>
       <a href="#top" className={`to-top ${showTop ? 'is-visible' : ''}`} aria-label="Back to top"><ArrowUp /></a>
     </footer>

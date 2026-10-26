@@ -421,3 +421,4 @@ a.contact__row:hover .contact__icon { background: #fff; color: var(--navy-800); 
   .feedback { grid-template-columns: 1fr; }
   .feedback__list { max-height: none; overflow: visible; }
 }
+.footer__build { display: block; margin-top: 4px; font-size: 12px; opacity: .55; }
