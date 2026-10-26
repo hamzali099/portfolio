@@ -14,47 +14,70 @@
   "skillGroups": [
     {
       "category": "Backend",
+      "icon": "server",
       "skills": [
         "C#",
         "ASP.NET Core",
         "ASP.NET MVC",
-        "REST APIs",
+        "REST API",
+        "Entity Framework Core",
         "PHP"
-      ],
-      "icon": "server"
+      ]
     },
     {
-      "category": "Frontend",
+      "category": "Frontend & Mobile",
+      "icon": "layout",
       "skills": [
         "JavaScript",
         "HTML",
-        "CSS"
-      ],
-      "icon": "layout"
+        "CSS",
+        "Bootstrap",
+        "React Native",
+        ".NET MAUI"
+      ]
     },
     {
       "category": "Desktop",
+      "icon": "monitor",
       "skills": [
         "WinForms",
         ".NET"
-      ],
-      "icon": "monitor"
+      ]
+    },
+    {
+      "category": "Databases & Cloud",
+      "icon": "database",
+      "skills": [
+        "MS SQL Server",
+        "Azure SQL Database",
+        "MySQL"
+      ]
+    },
+    {
+      "category": "Maps & APIs",
+      "icon": "map",
+      "skills": [
+        "MapLibre",
+        "Leaflet",
+        "Google Maps API",
+        "Chart.js"
+      ]
     }
   ],
   "highlights": [
     {
-      "title": "Enterprise Applications",
-      "description": "Designing and delivering business software that streamlines operations.",
+      "title": "Enterprise & Government Systems",
+      "description": "Secure, high-availability web and desktop applications delivered with cross-functional teams.",
       "icon": "building"
     },
     {
-      "title": "Real-time Monitoring",
-      "description": "Systems that surface live operational data the moment it matters.",
+      "title": "Real-time Traffic Monitoring",
+      "description": "Live junction status, alarms and vehicle counts on interactive maps.",
       "icon": "activity"
     },
     {
-      "title": "Data-driven Solutions",
-      "description": "Turning raw data into insight that supports informed decisions.",
+      "title": "Traffic Data & Simulation",
+      "description": "Microscopic simulation and travel-time analytics to improve junction performance.",
       "icon": "chart"
     }
   ],
@@ -66,8 +89,10 @@
       "end": null,
       "location": "Melaka, Malacca, Malaysia",
       "points": [
-        "Design and deliver enterprise applications using C# and ASP.NET Core.",
-        "Build real-time monitoring systems and data-driven solutions that improve operational efficiency."
+        "Design and maintain scalable web and desktop applications using ASP.NET Core, ASP.NET MVC and WinForms.",
+        "Built a RESTful API for traffic junction monitoring with token authentication, live junction status and alarm management (ASP.NET Core Web API, EF Core, MySQL).",
+        "Work with microscopic traffic simulation environments to model road networks, analyse vehicle flow and evaluate signal timing strategies.",
+        "Collaborate with cross-functional teams to deliver secure, high-availability systems for enterprise and government projects."
       ]
     },
     {
@@ -84,16 +109,17 @@
   "education": [
     {
       "institution": "University of Gujrat",
-      "degree": "Bachelor's degree",
-      "field": "Computer Software Engineering",
-      "start": "2021-11",
-      "end": "2025-06"
+      "degree": "BS",
+      "field": "Software Engineering",
+      "start": "2021-10",
+      "end": "2025-07",
+      "location": "Gujrat, Pakistan"
     }
   ],
   "roles": [
     "Software Engineer",
     "ASP.NET Core Developer",
-    "Full-Stack .NET Developer"
+    "Traffic Systems Developer"
   ],
   "stats": [
     {
@@ -101,11 +127,11 @@
       "label": "Years experience"
     },
     {
-      "value": "4",
-      "label": "Projects shown"
+      "value": "6",
+      "label": "Projects"
     },
     {
-      "value": "10+",
+      "value": "20+",
       "label": "Technologies"
     },
     {
@@ -115,78 +141,122 @@
   ],
   "projects": [
     {
-      "title": "Real-time Production Monitoring System",
-      "category": "Web App",
-      "description": "Live dashboard that tracks machine and production-line status, raises alerts on faults and keeps history for reporting.",
+      "title": "Traffic Junction Monitoring Dashboard",
+      "category": "Traffic Systems",
+      "period": "Jun 2026 – Present",
+      "description": "Real-time dashboard for monitoring traffic junctions on interactive Leaflet maps, backed by a secure REST API.",
       "tech": [
-        "ASP.NET Core",
-        "C#",
-        "SignalR",
-        "SQL Server",
-        "JavaScript"
+        "ASP.NET Core Web API",
+        "Entity Framework Core",
+        "MySQL",
+        "Leaflet",
+        ".NET MAUI",
+        "PHP"
       ],
       "features": [
-        "Live status updates",
-        "Alerting & history",
-        "Role-based access"
+        "Live junction status on map",
+        "Recent alarm monitoring & management",
+        "Token-authenticated REST API",
+        "Responsive interface"
       ],
       "github": "",
       "demo": "",
       "featured": true
     },
     {
-      "title": "Enterprise Operations Portal",
-      "category": "Web App",
-      "description": "ASP.NET Core MVC portal that brings day-to-day operational workflows, records and reports into one system.",
+      "title": "Real-time Traffic Simulation & Vehicle Count Map",
+      "category": "Traffic Systems",
+      "period": "MRL Engineering",
+      "description": "MapLibre map for a Malaysian company that renders classified vehicle counts from live traffic-controller data, with phase-wise and junction-wise simulation.",
       "tech": [
-        "ASP.NET Core MVC",
-        "Entity Framework",
-        "REST API",
-        "Bootstrap"
+        "MapLibre",
+        "JavaScript",
+        "ASP.NET Core"
       ],
       "features": [
-        "CRUD workflows",
-        "Reporting & exports",
-        "REST API"
+        "Classified vehicle count rendering",
+        "Phase-wise simulation",
+        "Junction-wise simulation",
+        "Real-time controller data"
+      ],
+      "github": "",
+      "demo": "",
+      "featured": true
+    },
+    {
+      "title": "Google Journey Travel Time Analytics",
+      "category": "Traffic Systems",
+      "period": "MRL Engineering",
+      "description": "Traffic analytics feature that retrieves Google travel-time data and visualises it in interactive line charts.",
+      "tech": [
+        "Google Maps API",
+        "ASP.NET Core",
+        "JavaScript",
+        "Charts"
+      ],
+      "features": [
+        "Compare route durations",
+        "Congestion & peak-period trends",
+        "Historical travel performance"
       ],
       "github": "",
       "demo": "",
       "featured": false
     },
     {
-      "title": "Inventory Management Desktop App",
-      "category": "Desktop",
-      "description": "WinForms application for stock in/out, supplier records and low-stock alerts with printable reports.",
-      "tech": [
-        "C#",
-        "WinForms",
-        ".NET",
-        "SQL Server"
-      ],
-      "features": [
-        "Stock tracking",
-        "Supplier management",
-        "Printable reports"
-      ],
-      "github": "",
-      "demo": "",
-      "featured": false
-    },
-    {
-      "title": "Hosting Control Panel Features",
-      "category": "PHP",
-      "description": "Features and UI improvements for a web hosting control panel, built during my role at dpanel.co.",
+      "title": "Travel Trek – Tour & Travel Web & Mobile App",
+      "category": "Web & Mobile",
+      "period": "Final Year Project",
+      "description": "Responsive tour and travel website plus a React Native mobile app for tourism package management, bookings and customer enquiries.",
       "tech": [
         "PHP",
         "MySQL",
-        "JavaScript",
+        "Bootstrap 5",
         "HTML",
-        "CSS"
+        "CSS3",
+        "React Native"
       ],
       "features": [
-        "Account management",
-        "Responsive UI",
-        "Bug fixes & optimisation"
+        "Tour package management",
+        "Online booking",
+        "Customer enquiries",
+        "Web + mobile app"
+      ],
+      "github": "",
+      "demo": "",
+      "featured": false
+    },
+    {
+      "title": "Healing Hub – Clinic Management System",
+      "category": "Web App",
+      "period": "Jul 2025 – Aug 2025",
+      "description": "Clinic management system with an AI chatbot, appointment booking, patient records, online payments and an admin panel.",
+      "tech": [],
+      "features": [
+        "AI chatbot integration",
+        "Appointment booking",
+        "Patient management",
+        "Online payments & admin panel"
+      ],
+      "github": "",
+      "demo": "",
+      "featured": false
+    },
+    {
+      "title": "MRL Engineering Website",
+      "category": "Web App",
+      "period": "Mar 2026 – Apr 2026",
+      "description": "Enhanced the company website pages, secured forms with Google reCAPTCHA, fixed UI issues and finalised improvements.",
+      "tech": [
+        "Google reCAPTCHA",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "features": [
+        "Google reCAPTCHA form validation",
+        "UI fixes & page enhancements",
+        "Maintenance of existing features"
       ],
       "github": "",
       "demo": "",

@@ -7,6 +7,7 @@ import Skills from './components/Skills.jsx';
 import Experience from './components/Experience.jsx';
 import Projects from './components/Projects.jsx';
 import Education from './components/Education.jsx';
+import Feedback from './components/Feedback.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 
@@ -47,6 +48,7 @@ export default function App() {
         <Experience profile={profile} />
         <Projects profile={profile} />
         <Education profile={profile} />
+        <Feedback />
         <Contact profile={profile} />
       </main>
       <Footer profile={profile} />

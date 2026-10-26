@@ -2,7 +2,7 @@
 
 Personal portfolio built from my LinkedIn profile.
 
-- **Backend:** ASP.NET Core 8 MVC. It hosts the site and serves `GET /api/profile` and `POST /api/contact`.
+- **Backend:** ASP.NET Core 8 MVC + Entity Framework Core. It hosts the site and serves the API below.
 - **Frontend:** React 18 + Vite, built into `Portfolio.Web/wwwroot/app`.
 
 ## Structure
@@ -10,9 +10,11 @@ Personal portfolio built from my LinkedIn profile.
 Portfolio.Web/              ASP.NET Core MVC app
   Controllers/HomeController.cs        renders Views/Home/Index (React host + SEO meta)
   Controllers/Api/ProfileController.cs GET  /api/profile
-  Controllers/Api/ContactController.cs POST /api/contact (validated, saved to App_Data/messages.jsonl)
+  Controllers/Api/ContactController.cs POST /api/contact  (saved to the database + emailed to me)
+  Controllers/Api/FeedbackController.cs GET/POST /api/feedback (public visitor comments & ratings)
   Data/profile.json                    <- edit your content here
-  Services/                            profile + contact services (DI)
+  Data/AppDbContext.cs                 feedback + contact messages (SQLite locally, PostgreSQL in production)
+  Services/                            profile, contact and email services (DI)
 ClientApp/                  React app (Vite)
 ```
 
@@ -48,6 +50,17 @@ Each project looks like this (`github` / `demo` links show buttons when filled i
 
 The site has a light (white & navy) theme and a dark navy theme. Visitors switch with the moon/sun button, and the choice is remembered.
 
+## Configuration (environment variables)
+
+| Variable | Purpose |
+|---|---|
+| `Email__ResendApiKey` | API key from [resend.com](https://resend.com) (free). Contact messages are emailed to `hamzacodes0@gmail.com`. |
+| `ConnectionStrings__Default` | PostgreSQL connection string, e.g. from [neon.tech](https://neon.tech) (free). Keeps feedback and messages permanently. Without it a local SQLite file is used, which free hosts wipe on every redeploy. |
+| `AdminKey` | Any secret text. Lets you delete a spam comment: `curl -X DELETE https://<site>/api/feedback/<id> -H "X-Admin-Key: <key>"` |
+| `Email__Smtp__Host`, `Email__Smtp__User`, `Email__Smtp__Password` | Alternative to Resend: Gmail SMTP (`smtp.gmail.com`) with a Google app password. Many free hosts block SMTP, so Resend is recommended. |
+
+Forms are protected with a hidden honeypot field and a limit of 5 submissions per 10 minutes per visitor.
+
 ## Deploy (free)
 
 ### Option A: Render (Docker)
@@ -55,7 +68,7 @@ The site has a light (white & navy) theme and a dark navy theme. Visitors switch
 2. On https://render.com create a **New → Web Service**, connect the repo, and choose **Docker** as the runtime (it uses the `Dockerfile` at the root).
 3. Pick the **Free** instance type and deploy. Your site gets a `https://<name>.onrender.com` URL.
 
-Free services sleep after inactivity, so the first visit after a while takes a few extra seconds. The disk is not permanent, so contact messages saved to `App_Data` are lost on redeploy (switch `FileContactService` to email to keep them).
+Free services sleep after inactivity, so the first visit after a while takes a few extra seconds. Set the environment variables above under **Environment** in the Render dashboard; without a database connection string, feedback is lost whenever the service redeploys or restarts.
 
 ### Option B: MonsterASP.NET (native ASP.NET Core hosting)
 1. Create a free account and website at https://www.monsterasp.net.

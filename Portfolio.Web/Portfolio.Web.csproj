@@ -12,6 +12,11 @@
     <Content Update="Data\profile.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.11" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11" />
+  </ItemGroup>
+
   <!-- Build the React app into wwwroot/app on publish -->
   <Target Name="BuildClientApp" BeforeTargets="ComputeFilesToPublish" Condition="'$(Configuration)' == 'Release' And '$(SkipClientBuild)' != 'true'">
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm ci" />

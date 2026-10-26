@@ -12,7 +12,7 @@ export default function Education({ profile }) {
             <div>
               <h3>{e.institution}</h3>
               <p className="edu__degree">{e.degree}, {e.field}</p>
-              <p className="edu__date">{formatMonth(e.start)} — {formatMonth(e.end)}</p>
+              <p className="edu__date">{formatMonth(e.start)} — {formatMonth(e.end)}{e.location ? ` · ${e.location}` : ''}</p>
             </div>
           </article>
         ))}

@@ -8,6 +8,7 @@ const LINKS = [
   ['experience', 'Experience'],
   ['projects', 'Projects'],
   ['education', 'Education'],
+  ['feedback', 'Feedback'],
   ['contact', 'Contact'],
 ];
 
@@ -70,7 +71,6 @@ export default function Navbar({ name }) {
           <button className="icon-btn" aria-label={`Switch to ${theme === 'dark' ? 'light' : 'navy'} theme`} onClick={toggleTheme}>
             {theme === 'dark' ? <Sun /> : <Moon />}
           </button>
-          <a href="#contact" className="btn btn--primary btn--sm nav__cta">Hire me</a>
           <button className="icon-btn nav__toggle" aria-label="Toggle menu" onClick={() => setOpen((o) => !o)}>
             {open ? <Close /> : <Menu />}
           </button>

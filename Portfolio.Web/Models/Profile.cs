@@ -34,7 +34,8 @@ public record Education(
     string Degree,
     string Field,
     string Start,
-    string End);
+    string End,
+    string? Location);
 
 public record Highlight(string Title, string Description, string Icon);
 
@@ -48,4 +49,5 @@ public record Project(
     List<string> Features,
     string? Github,
     string? Demo,
-    bool Featured);
+    bool Featured,
+    string? Period);

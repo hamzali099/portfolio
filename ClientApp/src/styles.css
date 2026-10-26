@@ -385,3 +385,39 @@ a.contact__row:hover .contact__icon { background: #fff; color: var(--navy-800); 
   .project__body { padding: 22px; }
   .to-top { right: 16px; bottom: 16px; }
 }
+
+/* ===== Honeypot (hidden from people, visible to bots) ===== */
+.hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
+
+/* ===== Project period ===== */
+.project__period { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; font-size: 13px; font-weight: 500; color: var(--muted); }
+
+/* ===== Feedback ===== */
+.feedback { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+.feedback__side { display: grid; gap: 20px; }
+.rating-summary { display: flex; align-items: center; gap: 20px; padding: 24px 28px; background: linear-gradient(150deg, var(--navy-800), var(--navy-900)); border: 0; color: #c9d8ee; }
+.rating-summary strong { font-family: var(--display); font-size: 3rem; font-weight: 800; color: #fff; line-height: 1; }
+.rating-summary > div { display: grid; gap: 4px; font-size: 14px; }
+.stars { display: inline-flex; gap: 2px; color: var(--border-strong); }
+.stars .is-on { color: var(--gold); fill: var(--gold); }
+.form__title { font-size: 1.2rem; margin: 0; }
+.star-input { display: flex; gap: 4px; }
+.star-input button { padding: 2px; background: none; border: 0; cursor: pointer; color: var(--border-strong); transition: transform .15s, color .15s; }
+.star-input button:hover { transform: scale(1.15); }
+.star-input button.is-on { color: var(--gold); }
+.star-input button.is-on svg { fill: var(--gold); }
+.feedback__list { display: grid; gap: 16px; max-height: 760px; overflow-y: auto; padding: 4px 10px 10px 4px; margin: -4px -10px -10px -4px; scrollbar-width: thin; }
+.feedback__empty { display: grid; justify-items: center; gap: 14px; text-align: center; padding: 56px 24px; color: var(--muted); border: 2px dashed var(--border); border-radius: var(--radius); }
+.comment { padding: 22px 24px; display: grid; gap: 10px; animation: pop .45s ease both; }
+.comment.card--hover:hover { transform: translateY(-4px); }
+.comment p { color: var(--text); white-space: pre-line; word-break: break-word; }
+.comment__head { display: flex; align-items: center; gap: 12px; }
+.comment__avatar { width: 42px; height: 42px; flex: none; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 14px; color: #fff; background: linear-gradient(135deg, var(--navy-800), var(--navy-600)); }
+.comment__who { display: grid; line-height: 1.3; min-width: 0; }
+.comment__who strong { color: var(--heading); }
+.comment__who small { color: var(--muted); font-size: 13px; }
+.comment time { margin-left: auto; font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+@media (max-width: 960px) {
+  .feedback { grid-template-columns: 1fr; }
+  .feedback__list { max-height: none; overflow: visible; }
+}

@@ -28,5 +28,12 @@ export const Check = (p) => (<svg {...base} {...p}><path d="M20 6 9 17l-5-5" /><
 export const Star = (p) => (<svg {...base} {...p}><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2-6.2 3.2L7 14.2 2 9.3l6.9-1Z" /></svg>);
 export const Download = (p) => (<svg {...base} {...p}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" /></svg>);
 
-export const skillIcon = { server: Server, layout: Layout, monitor: Monitor };
-export const projectIcon = { 'Web App': Activity, Desktop: Monitor, PHP: Code };
+export const Database = (p) => (<svg {...base} {...p}><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5v14a9 3 0 0 0 18 0V5" /><path d="M3 12a9 3 0 0 0 18 0" /></svg>);
+export const MapIcon = (p) => (<svg {...base} {...p}><path d="M14.1 6.1 9.9 3.9a2 2 0 0 0-1.8 0L3.6 6.2A1 1 0 0 0 3 7.1v12.8a1 1 0 0 0 1.4.9l3.7-1.9a2 2 0 0 1 1.8 0l4.2 2.2a2 2 0 0 0 1.8 0l4.5-2.3a1 1 0 0 0 .6-.9V5.1a1 1 0 0 0-1.4-.9l-3.7 1.9a2 2 0 0 1-1.8 0Z" /><path d="M15 6v15M9 3v15" /></svg>);
+export const Phone = (p) => (<svg {...base} {...p}><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg>);
+export const Traffic = (p) => (<svg {...base} {...p}><rect x="7" y="2" width="10" height="20" rx="5" /><circle cx="12" cy="7" r="1.5" /><circle cx="12" cy="12" r="1.5" /><circle cx="12" cy="17" r="1.5" /></svg>);
+export const Calendar = (p) => (<svg {...base} {...p}><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>);
+export const Message = (p) => (<svg {...base} {...p}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z" /></svg>);
+
+export const skillIcon = { server: Server, layout: Layout, monitor: Monitor, database: Database, map: MapIcon };
+export const projectIcon = { 'Traffic Systems': Traffic, 'Web & Mobile': Phone, 'Web App': Layout };

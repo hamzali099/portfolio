@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import Section from './Section.jsx';
-import { projectIcon, Code, Github, External, Check, Star } from './Icons.jsx';
+import { projectIcon, Code, Github, External, Check, Star, Calendar } from './Icons.jsx';
 
 // Subtle 3D tilt that follows the cursor
 function tilt(e) {
@@ -25,7 +25,7 @@ export default function Projects({ profile }) {
   const shown = profile.projects.filter((p) => filter === 'All' || p.category === filter);
 
   return (
-    <Section id="projects" alt eyebrow="Portfolio" title="Projects I've built" intro="A selection of applications I've designed and developed.">
+    <Section id="projects" alt eyebrow="Portfolio" title="Projects I've built" intro="Traffic systems, web and mobile applications I've designed and developed.">
       <div className="filters reveal" role="tablist">
         {categories.map((c) => (
           <button key={c} role="tab" aria-selected={filter === c} className={`filter ${filter === c ? 'is-active' : ''}`} onClick={() => setFilter(c)}>
@@ -46,14 +46,19 @@ export default function Projects({ profile }) {
                 {p.featured && <span className="project__featured"><Star width={14} height={14} /> Featured</span>}
               </div>
               <div className="project__body">
-                <h3>{p.title}</h3>
+                <div>
+                  <h3>{p.title}</h3>
+                  {p.period && <span className="project__period"><Calendar width={14} height={14} /> {p.period}</span>}
+                </div>
                 <p>{p.description}</p>
                 <ul className="project__features">
                   {p.features.map((f) => <li key={f}><Check width={15} height={15} /> {f}</li>)}
                 </ul>
-                <ul className="chips chips--sm">
-                  {p.tech.map((t) => <li key={t} className="chip">{t}</li>)}
-                </ul>
+                {p.tech?.length > 0 && (
+                  <ul className="chips chips--sm">
+                    {p.tech.map((t) => <li key={t} className="chip">{t}</li>)}
+                  </ul>
+                )}
                 {(p.github || p.demo) && (
                   <div className="project__links">
                     {p.github && <a href={p.github} target="_blank" rel="noreferrer"><Github width={18} height={18} /> Code</a>}
