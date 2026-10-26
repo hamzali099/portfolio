@@ -89,10 +89,8 @@
       "end": null,
       "location": "Melaka, Malacca, Malaysia",
       "points": [
-        "Design and maintain scalable web and desktop applications using ASP.NET Core, ASP.NET MVC and WinForms.",
-        "Built a RESTful API for traffic junction monitoring with token authentication, live junction status and alarm management (ASP.NET Core Web API, EF Core, MySQL).",
-        "Work with microscopic traffic simulation environments to model road networks, analyse vehicle flow and evaluate signal timing strategies.",
-        "Collaborate with cross-functional teams to deliver secure, high-availability systems for enterprise and government projects."
+        "Design and deliver enterprise applications using C# and ASP.NET Core.",
+        "Build real-time monitoring systems and data-driven solutions that improve operational efficiency."
       ]
     },
     {
