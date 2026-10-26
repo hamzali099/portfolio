@@ -88,10 +88,7 @@
       "start": "2025-10",
       "end": null,
       "location": "Melaka, Malacca, Malaysia",
-      "points": [
-        "Design and deliver enterprise applications using C# and ASP.NET Core.",
-        "Build real-time monitoring systems and data-driven solutions that improve operational efficiency."
-      ]
+      "points": []
     },
     {
       "company": "dpanel.co",
@@ -99,9 +96,7 @@
       "start": "2025-06",
       "end": "2025-08",
       "location": "Gujrāt, Punjab, Pakistan",
-      "points": [
-        "Developed and maintained web application features with PHP, HTML, CSS and JavaScript."
-      ]
+      "points": []
     }
   ],
   "education": [
