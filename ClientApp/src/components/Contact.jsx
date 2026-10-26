@@ -15,7 +15,7 @@ export default function Contact({ profile }) {
     e.preventDefault();
     setStatus({ state: 'sending', text: '' });
     try {
-      const res = await sendContact(form);
+      const res = await sendContact(form, profile.email);
       setStatus({ state: 'success', text: res.message });
       setForm(EMPTY);
     } catch (err) {

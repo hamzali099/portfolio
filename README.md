@@ -50,11 +50,17 @@ Each project looks like this (`github` / `demo` links show buttons when filled i
 
 The site has a light (white & navy) theme and a dark navy theme. Visitors switch with the moon/sun button, and the choice is remembered.
 
+## Contact form email
+
+Messages are emailed to `hamzacodes0@gmail.com` through [FormSubmit](https://formsubmit.co) straight from the browser, with no key or setup.
+The **first** message sends an "Activate Form" email to that address; click the button once and every later message is delivered.
+Messages are also saved in the database.
+
 ## Configuration (environment variables)
 
 | Variable | Purpose |
 |---|---|
-| `Email__ResendApiKey` | API key from [resend.com](https://resend.com) (free). Contact messages are emailed to `hamzacodes0@gmail.com`. |
+| `Email__ResendApiKey` | Optional. API key from [resend.com](https://resend.com) for a second, server-side email copy. |
 | `ConnectionStrings__Default` | PostgreSQL connection string, e.g. from [neon.tech](https://neon.tech) (free). Keeps feedback and messages permanently. Without it a local SQLite file is used, which free hosts wipe on every redeploy. |
 | `AdminKey` | Any secret text. Lets you delete a spam comment: `curl -X DELETE https://<site>/api/feedback/<id> -H "X-Admin-Key: <key>"` |
 | `Email__Smtp__Host`, `Email__Smtp__User`, `Email__Smtp__Password` | Alternative to Resend: Gmail SMTP (`smtp.gmail.com`) with a Google app password. Many free hosts block SMTP, so Resend is recommended. |
