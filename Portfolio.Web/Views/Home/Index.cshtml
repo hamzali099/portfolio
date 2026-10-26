@@ -1,0 +1,20 @@
+@model Profile
+@{
+    ViewData["Title"] = $"{Model.Name} — {Model.Title}";
+    ViewData["Description"] = Model.Summary;
+}
+
+<div id="root">
+    <noscript>
+        <main style="max-width:720px;margin:4rem auto;padding:0 1rem;font-family:Inter,sans-serif">
+            <h1>@Model.Name</h1>
+            <p>@Model.Headline</p>
+            <p>@Model.Summary</p>
+            <p><a href="mailto:@Model.Email">@Model.Email</a></p>
+        </main>
+    </noscript>
+</div>
+
+@section Scripts {
+    <script type="module" src="~/app/assets/app.js" asp-append-version="true"></script>
+}

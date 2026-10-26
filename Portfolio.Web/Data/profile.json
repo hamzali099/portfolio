@@ -1,0 +1,196 @@
+{
+  "name": "Ali Hamza",
+  "title": "Software Engineer",
+  "headline": "C# | ASP.NET Core | MVC | REST API | WinForms | PHP | HTML | CSS",
+  "location": "Melaka, Malacca, Malaysia",
+  "email": "hamzacodes0@gmail.com",
+  "linkedIn": "https://www.linkedin.com/in/ali-hamza-176aab36b",
+  "summary": "Software Engineer with experience designing and delivering enterprise applications, real-time monitoring systems, and data-driven solutions that improve operational efficiency and support informed decision-making. Committed to building scalable, reliable, and maintainable software with a strong focus on performance, quality, and user experience. Passionate about solving complex business challenges through innovative solutions while continuously learning and contributing to high-impact projects in collaborative environments.",
+  "topSkills": [
+    "C#",
+    "ASP.NET Core",
+    "JavaScript"
+  ],
+  "skillGroups": [
+    {
+      "category": "Backend",
+      "skills": [
+        "C#",
+        "ASP.NET Core",
+        "ASP.NET MVC",
+        "REST APIs",
+        "PHP"
+      ],
+      "icon": "server"
+    },
+    {
+      "category": "Frontend",
+      "skills": [
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
+      "icon": "layout"
+    },
+    {
+      "category": "Desktop",
+      "skills": [
+        "WinForms",
+        ".NET"
+      ],
+      "icon": "monitor"
+    }
+  ],
+  "highlights": [
+    {
+      "title": "Enterprise Applications",
+      "description": "Designing and delivering business software that streamlines operations.",
+      "icon": "building"
+    },
+    {
+      "title": "Real-time Monitoring",
+      "description": "Systems that surface live operational data the moment it matters.",
+      "icon": "activity"
+    },
+    {
+      "title": "Data-driven Solutions",
+      "description": "Turning raw data into insight that supports informed decisions.",
+      "icon": "chart"
+    }
+  ],
+  "experience": [
+    {
+      "company": "MRL Engineering Sdn Bhd",
+      "role": "Software Engineer",
+      "start": "2025-10",
+      "end": null,
+      "location": "Melaka, Malacca, Malaysia",
+      "points": [
+        "Design and deliver enterprise applications using C# and ASP.NET Core.",
+        "Build real-time monitoring systems and data-driven solutions that improve operational efficiency."
+      ]
+    },
+    {
+      "company": "dpanel.co",
+      "role": "PHP Developer",
+      "start": "2025-06",
+      "end": "2025-08",
+      "location": "Gujrāt, Punjab, Pakistan",
+      "points": [
+        "Developed and maintained web application features with PHP, HTML, CSS and JavaScript."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Gujrat",
+      "degree": "Bachelor's degree",
+      "field": "Computer Software Engineering",
+      "start": "2021-11",
+      "end": "2025-06"
+    }
+  ],
+  "roles": [
+    "Software Engineer",
+    "ASP.NET Core Developer",
+    "Full-Stack .NET Developer"
+  ],
+  "stats": [
+    {
+      "value": "1+",
+      "label": "Years experience"
+    },
+    {
+      "value": "4",
+      "label": "Projects shown"
+    },
+    {
+      "value": "10+",
+      "label": "Technologies"
+    },
+    {
+      "value": "2",
+      "label": "Companies"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Real-time Production Monitoring System",
+      "category": "Web App",
+      "description": "Live dashboard that tracks machine and production-line status, raises alerts on faults and keeps history for reporting.",
+      "tech": [
+        "ASP.NET Core",
+        "C#",
+        "SignalR",
+        "SQL Server",
+        "JavaScript"
+      ],
+      "features": [
+        "Live status updates",
+        "Alerting & history",
+        "Role-based access"
+      ],
+      "github": "",
+      "demo": "",
+      "featured": true
+    },
+    {
+      "title": "Enterprise Operations Portal",
+      "category": "Web App",
+      "description": "ASP.NET Core MVC portal that brings day-to-day operational workflows, records and reports into one system.",
+      "tech": [
+        "ASP.NET Core MVC",
+        "Entity Framework",
+        "REST API",
+        "Bootstrap"
+      ],
+      "features": [
+        "CRUD workflows",
+        "Reporting & exports",
+        "REST API"
+      ],
+      "github": "",
+      "demo": "",
+      "featured": false
+    },
+    {
+      "title": "Inventory Management Desktop App",
+      "category": "Desktop",
+      "description": "WinForms application for stock in/out, supplier records and low-stock alerts with printable reports.",
+      "tech": [
+        "C#",
+        "WinForms",
+        ".NET",
+        "SQL Server"
+      ],
+      "features": [
+        "Stock tracking",
+        "Supplier management",
+        "Printable reports"
+      ],
+      "github": "",
+      "demo": "",
+      "featured": false
+    },
+    {
+      "title": "Hosting Control Panel Features",
+      "category": "PHP",
+      "description": "Features and UI improvements for a web hosting control panel, built during my role at dpanel.co.",
+      "tech": [
+        "PHP",
+        "MySQL",
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
+      "features": [
+        "Account management",
+        "Responsive UI",
+        "Bug fixes & optimisation"
+      ],
+      "github": "",
+      "demo": "",
+      "featured": false
+    }
+  ]
+}
