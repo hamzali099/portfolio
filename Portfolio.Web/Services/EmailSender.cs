@@ -22,8 +22,11 @@ public class EmailSender : IEmailSender
         _logger = logger;
     }
 
-    public async Task<bool> SendAsync(string subject, string htmlBody, string? replyTo, CancellationToken cancellationToken = default)
+    public async Task<EmailResult> SendAsync(string subject, string htmlBody, string? replyTo, CancellationToken cancellationToken = default)
     {
+        var provider = !string.IsNullOrWhiteSpace(_options.ResendApiKey) ? "Resend"
+            : !string.IsNullOrWhiteSpace(_options.Smtp.Host) ? "SMTP"
+            : "None";
         try
         {
             if (!string.IsNullOrWhiteSpace(_options.ResendApiKey))
@@ -32,17 +35,18 @@ public class EmailSender : IEmailSender
             if (!string.IsNullOrWhiteSpace(_options.Smtp.Host))
                 return await SendWithSmtpAsync(subject, htmlBody, replyTo, cancellationToken);
 
-            _logger.LogWarning("No email provider configured; message stored in the database only.");
-            return false;
+            const string notConfigured = "No email provider configured. Set Email__ResendApiKey (or the Email__Smtp__* settings).";
+            _logger.LogWarning(notConfigured);
+            return new EmailResult(false, provider, notConfigured);
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Sending email failed");
-            return false;
+            _logger.LogError(ex, "Sending email via {Provider} failed", provider);
+            return new EmailResult(false, provider, ex.Message);
         }
     }
 
-    private async Task<bool> SendWithResendAsync(string subject, string htmlBody, string? replyTo, CancellationToken cancellationToken)
+    private async Task<EmailResult> SendWithResendAsync(string subject, string htmlBody, string? replyTo, CancellationToken cancellationToken)
     {
         using var request = new HttpRequestMessage(HttpMethod.Post, "https://api.resend.com/emails")
         {
@@ -52,19 +56,20 @@ public class EmailSender : IEmailSender
                 to = new[] { _options.To },
                 subject,
                 html = htmlBody,
-                reply_to = replyTo,
-            }),
+                reply_to = string.IsNullOrWhiteSpace(replyTo) ? null : new[] { replyTo },
+            }, options: new System.Text.Json.JsonSerializerOptions { DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull }),
         };
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _options.ResendApiKey);
 
         using var response = await _http.SendAsync(request, cancellationToken);
-        if (response.IsSuccessStatusCode) return true;
+        if (response.IsSuccessStatusCode) return new EmailResult(true, "Resend");
 
-        _logger.LogError("Resend returned {Status}: {Body}", (int)response.StatusCode, await response.Content.ReadAsStringAsync(cancellationToken));
-        return false;
+        var body = await response.Content.ReadAsStringAsync(cancellationToken);
+        _logger.LogError("Resend returned {Status}: {Body}", (int)response.StatusCode, body);
+        return new EmailResult(false, "Resend", $"Resend returned {(int)response.StatusCode}: {body}");
     }
 
-    private async Task<bool> SendWithSmtpAsync(string subject, string htmlBody, string? replyTo, CancellationToken cancellationToken)
+    private async Task<EmailResult> SendWithSmtpAsync(string subject, string htmlBody, string? replyTo, CancellationToken cancellationToken)
     {
         var smtp = _options.Smtp;
         using var client = new SmtpClient(smtp.Host, smtp.Port)
@@ -76,6 +81,6 @@ public class EmailSender : IEmailSender
         if (!string.IsNullOrWhiteSpace(replyTo)) mail.ReplyToList.Add(replyTo);
 
         await client.SendMailAsync(mail, cancellationToken);
-        return true;
+        return new EmailResult(true, "SMTP");
     }
 }

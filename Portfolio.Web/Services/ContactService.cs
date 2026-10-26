@@ -29,7 +29,7 @@ public class ContactService : IContactService
         await _db.SaveChangesAsync(cancellationToken);
 
         var subject = $"Portfolio contact: {(string.IsNullOrWhiteSpace(record.Subject) ? record.Name : record.Subject)}";
-        record.EmailSent = await _email.SendAsync(subject, BuildBody(record), record.Email, cancellationToken);
+        record.EmailSent = (await _email.SendAsync(subject, BuildBody(record), record.Email, cancellationToken)).Sent;
         await _db.SaveChangesAsync(cancellationToken);
 
         return record.EmailSent;

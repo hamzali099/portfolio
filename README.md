@@ -59,6 +59,8 @@ The site has a light (white & navy) theme and a dark navy theme. Visitors switch
 | `AdminKey` | Any secret text. Lets you delete a spam comment: `curl -X DELETE https://<site>/api/feedback/<id> -H "X-Admin-Key: <key>"` |
 | `Email__Smtp__Host`, `Email__Smtp__User`, `Email__Smtp__Password` | Alternative to Resend: Gmail SMTP (`smtp.gmail.com`) with a Google app password. Many free hosts block SMTP, so Resend is recommended. |
 
+**Email not arriving?** With `AdminKey` set, open `https://<site>/api/contact/test?key=<AdminKey>` in a browser. It sends a test email and shows exactly what went wrong.
+
 Forms are protected with a hidden honeypot field and a limit of 5 submissions per 10 minutes per visitor.
 
 ## Deploy (free)
